@@ -1,0 +1,12 @@
+
+ {% extends 'base.html' %}
+
+{% block content %}
+  <h2 style="padding-top:80px;">Edit Product</h2>
+  <form method="post" enctype="multipart/form-data" style="padding-bottom: 100px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+    <a href="{% url 'movieapp:allProdCat' %}">Cancel</a>
+  </form>
+{% endblock %} 

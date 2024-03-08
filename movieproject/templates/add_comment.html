@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 style="padding-top:80px;">Add Comment</h2>
+    <form method="post" action="{% url 'movieapp:add_comment' product_id=product.id %}">
+    {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+        <a href="{% url 'movieapp:allProdCat' %}">Cancel</a>
+    </form>
+{% endblock %}

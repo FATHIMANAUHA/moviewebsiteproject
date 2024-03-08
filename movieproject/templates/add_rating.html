@@ -1,0 +1,13 @@
+ {% extends 'base.html' %}
+{% block content %}
+  <h2 style="padding-top:80px;">Add Rating</h2>
+  <form method="post" action="{% url 'movieapp:add_rating' product_id=product.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Rating</button>
+
+  </form>
+
+{% endblock %} 
+    {% comment %} <button type="button" onclick="window.location.href='{% url 'movieapp:allProdCat' %}'">Back to all Movies</button> {% endcomment %}
+

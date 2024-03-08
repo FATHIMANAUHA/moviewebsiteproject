@@ -1,0 +1,55 @@
+
+.footer {
+    background-color: rgb(117, 149, 85);
+    color: rgb(191, 218, 231);
+    text-align: center;
+    width: 100%;
+    height: 10%;
+    position: fixed;
+    bottom:0;
+    left: 0;
+}
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 90px; /* Adjust height as needed */
+    margin-bottom: 10px; /* Adjust spacing */
+}
+.image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black; /* Adjust text color */
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold; /* Adjust font weight */
+}
+.my_image1 {
+    width: 100%;
+}
+.col-12 col-sm-12 col-md-12 col-lg-6 text-center{
+    height: 30px;
+    width: 50px;
+}
+.my_image1{
+    height: 30px;
+    width: 50px;
+}
+.my_image1 my_image_padding{
+    height: 30px;
+    width: 50px;
+}
+.row mx_auto{
+    height: 500px;
+    width: 100px;
+
+}
+.poster{
+    height: 500px;
+    width: 100px;
+}
+.my_hello{
+    height: 500px;
+    width: 100px;
+
+}

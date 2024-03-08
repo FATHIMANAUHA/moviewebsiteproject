@@ -1,0 +1,72 @@
+
+ <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="background-color:rgb(117, 149, 85);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color: white;">HM Movie</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" style="margin-top: 7px;">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+
+          <li class="nav-item dropdown {% if 'movieapp' in request.path %} active {% endif %}">
+            <a class="nav-link dropdown-toggle" style="margin-top: 7px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Movie
+            </a>
+            <ul class="dropdown-menu" style="background-color: lightgrey;">
+              <li><a class="dropdown-item" href="{% url 'movieapp:allProdCat' %}">All Movies</a></li>
+              <li><hr class="dropdown-divider"></li>
+                {% for cat in links %}
+              <li><a class="dropdown-item" href="{{cat.get_url}}">{{cat.name}}</a></li>
+            {% endfor %}
+            {% if user.is_authenticated %}
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'movieapp:add_product' %}">Add Movie</a></li>
+                    {% endif %}
+            </ul>
+          </li>
+
+        <div class="ac" style="margin-left:860px; margin-top:0px;">
+        <li class="nav-item dropdown {% if 'movieapp' in request.path %} active {% endif %}">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+        <ul class="dropdown-menu" style="background-color: lightgrey;">
+        
+                
+          {% if user.is_authenticated %}
+                    <span class="dropdown-item">Hello {{ user.username }} </span>
+                    <li><hr class="dropdown-divider"></li>
+
+                    {% if user.is_authenticated %}   
+                     <li><a class="dropdown-item" href="{% url 'movieapp:edit_profile'%}">Edit Profile</a></li>
+                {% endif %}
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'authentication:logout' %}">Logout</a></li>
+            {% else %}
+            <li><a class="dropdown-item" href="{% url 'authentication:reg' %}">Register</a></li>
+            <li><a class="dropdown-item" href="{% url 'authentication:login' %}">Login</a></li>
+            {% endif %}
+          </ul>
+          </li>
+          {% if user.is_authenticated %}
+          {% endif %}
+        </div>
+        <li class="navv">
+          {% if user.is_authenticated %}
+            {% comment %} <a class="nav-link" href="#"><i class="fa-regular fa-user" style="font-size: x-large; margin-top: 5px;"></i></a> {% endcomment %}
+            {% comment %}
+            {% endcomment %}
+            {% endif %}
+          </li>
+          </ul>
+          <form class="d-flex" action="{% url 'search_app:SearchResult' %}" method="get" style="padding: 5px; border-radius: 10px;">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search" style="background-color: white; color: black;" autocomplete="off">
+            <button class="btn" type="submit" style="background-color: None"><i class="fa-solid fa-magnifying-glass" style="color: black;"></i></button>
+        </form>
+      </div>
+    </div>
+  </nav>

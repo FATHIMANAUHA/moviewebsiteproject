@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f5f5f5;">
+
+<div style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 100px;">
+  <form action="{% url 'authentication:login' %}" method="post">
+    {% csrf_token %}
+    <label for="username" style="display: block; margin-bottom: 5px;">Username:</label>
+    <input type="text" name="username" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+
+    <label for="password" style="display: block; margin-bottom: 5px;">Password:</label>
+    <input type="password" name="password" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+
+    <input type="submit" value="Login" style="width: 100%; padding: 10px; background-color: #007bff; border: none; color: #fff; border-radius: 5px; cursor: pointer;">
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
